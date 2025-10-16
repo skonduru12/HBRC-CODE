@@ -16,24 +16,9 @@ void loop() {
   delayMicroseconds(10);
   digitalWrite(trig, LOW);
 
+  float duration = pulseIn(echo, HIGH);
+  float distance = (duration * 0.0343) / 2;
 
-  float duration = pulseIn(Echo, HIGH);
-  float distance = (duration*.0343)/2;
-  int count = 0;
   Serial.print("Distance: ");
-  Serial.println(distance);
-  if(distance >5 ){
-    count++;
-
-
-  }
-  else{
-    count = 0;
-  }
-
-
-  if(count >= 5){
-    //turn function here
-  }
- 
-  delay(1000);
+  Serial.print(distance);
+  Serial.println(" cm");
